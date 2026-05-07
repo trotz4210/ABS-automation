@@ -18,9 +18,12 @@ jobs:
         with:
           python-version: '3.9'
 
-      # PDF 변환을 위해 Linux용 LibreOffice를 설치
-      - name: Install LibreOffice
-        run: sudo apt-get update && sudo apt-get install -y libreoffice
+      # 한글 폰트(나눔)와 LibreOffice를 함께 설치하여 PDF 깨짐 방지
+      - name: Install Korean Fonts and LibreOffice
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-nanum libreoffice
+          sudo fc-cache -fv
 
       # 필요한 파이썬 라이브러리 설치
       - name: Install Dependencies
