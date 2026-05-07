@@ -1,4 +1,4 @@
-name: ABS Night Automation
+name: ABS automation for sending email
 
 on:
   schedule:
