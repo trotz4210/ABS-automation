@@ -1,0 +1,34 @@
+name: ABS Night Automation
+
+on:
+  schedule:
+    # 한국 시간(KST) 매주 목요일 오후 6시 실행 (UTC 09:00)
+    - cron: '0 9 * * 4'
+  workflow_dispatch: # 직접 실행해볼 수 있는 버튼 생성
+
+jobs:
+  run-automation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      # PDF 변환을 위해 Linux용 LibreOffice를 설치
+      - name: Install LibreOffice
+        run: sudo apt-get update && sudo apt-get install -y libreoffice
+
+      # 필요한 파이썬 라이브러리 설치
+      - name: Install Dependencies
+        run: pip install python-docx
+
+      # 스크립트 실행 (환경 변수 연결)
+      - name: Run Script
+        env:
+          EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+        run: python abs_auto_email.py
