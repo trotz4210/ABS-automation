@@ -2,8 +2,8 @@ name: ABS automation for sending email
 
 on:
   schedule:
-    # 한국 시간(KST) 매주 목요일 오후 6시 실행 (UTC 09:00)
-    - cron: '0 9 * * 4'
+    # 한국 시간(KST) 매주 목요일 오후 5시 50분 실행 (UTC 08:50)
+    - cron: '50 8 * * 4'
   workflow_dispatch: # 직접 실행해볼 수 있는 버튼 생성
 
 jobs:
