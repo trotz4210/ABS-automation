@@ -11,7 +11,7 @@ from datetime import datetime, timedelta
 #이메일 설정
 EMAIL_ADDRESS = os.environ.get("EMAIL_ADDRESS")
 EMAIL_PASSWORD = os.environ.get("EMAIL_PASSWORD")
-RECEIVER_EMAIL = "trotz4210@gmail.com" #총동연: "khudongari@khu.ac.kr"
+RECEIVER_EMAIL = "khudongari@khu.ac.kr" #총동연 이메일 (*총동연 이메일 변경 시 변수 설정)
 TEMPLATE_PATH = "template.docx"
 
 TODAY = datetime.now()
