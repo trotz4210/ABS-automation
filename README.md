@@ -43,6 +43,7 @@ ABS-automation/
 ├── .github/
 │   └── workflows/
 │       └── main.yml
+│       └── keep-alive.yml #자동으로 Empty Commit을 Push하여 Actions가 폐쇄되는 것을 방지한다.
 ├── abs_auto_email.py
 ├── template.docx
 └── README.md
